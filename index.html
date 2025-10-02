@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificar su Nombre</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+    .contenedor {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    input {
+      padding: 8px;
+      width: 80%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #2b6cb0;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #234e80;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Verificar su Nombre</h2>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+    <br>
+    <button onclick="verificar()">Verificar</button>
+    <p id="mensaje"></p>
+  </div>
+
+  <!-- Aquí va el audio que tú pondrás -->
+  <audio id="audioVerificado" src="musica/sonido-de-gemidos-broma-made-with-Voicemod.mp3"></audio>
+
+  <script>
+    function verificar() {
+      let nombre = document.getElementById("nombre").value.trim();
+      let mensaje = document.getElementById("mensaje");
+      let audio = document.getElementById("audioVerificado");
+
+      if(nombre === "") {
+        mensaje.textContent = "Por favor ingresa un nombre.";
+        mensaje.style.color = "red";
+      } else {
+        mensaje.textContent = "Nombre verificado ✅";
+        mensaje.style.color = "green";
+        audio.play(); // Reproduce tu audio
+      }
+    }
+  </script>
+</body>
+</html>
